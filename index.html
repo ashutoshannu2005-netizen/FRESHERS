@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freshers' Fiesta 2026 | Batch 2025–2029</title>
+<meta name="description" content="Freshers' Fiesta 2026 — a grand celebration welcoming Batch 2025–2029. DJ Night, performances, games, food and unforgettable memories on 26 July 2026.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== LOADING SCREEN ===================== -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">
+      <span class="loader-star">✦</span>
+      <span class="loader-text">FRESHERS' FIESTA</span>
+      <span class="loader-star">✦</span>
+    </div>
+    <div class="loader-bar"><span></span></div>
+    <p class="loader-sub">Loading the celebration…</p>
+  </div>
+</div>
+
+<!-- ===================== CURSOR GLOW ===================== -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- ===================== SCROLL PROGRESS BAR ===================== -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===================== BACKGROUND LAYERS ===================== -->
+<div class="bg-gradient"></div>
+<div class="bg-stars" id="bgStars"></div>
+<canvas id="particleCanvas" class="particle-canvas"></canvas>
+<div class="confetti-container" id="confettiContainer"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <span class="logo-icon">✦</span> FIESTA<span class="logo-accent">'26</span>
+      <span class="logo-college">GEC Aurangabad</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active" data-nav>Home</a>
+      <a href="#about" class="nav-link" data-nav>About</a>
+      <a href="#schedule" class="nav-link" data-nav>Schedule</a>
+      <a href="#events" class="nav-link" data-nav>Events</a>
+      <a href="#team" class="nav-link" data-nav>Team</a>
+      <a href="#faq" class="nav-link" data-nav>FAQ</a>
+      <a href="#contact" class="nav-link" data-nav>Contact</a>
+    </nav>
+
+    <button type="button" class="nav-cta" id="registerBtnNav">Register</button>
+
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mobile-link" data-nav>Home</a>
+    <a href="#about" class="mobile-link" data-nav>About</a>
+    <a href="#schedule" class="mobile-link" data-nav>Schedule</a>
+    <a href="#events" class="mobile-link" data-nav>Events</a>
+    <a href="#team" class="mobile-link" data-nav>Team</a>
+    <a href="#faq" class="mobile-link" data-nav>FAQ</a>
+    <a href="#contact" class="mobile-link" data-nav>Contact</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+
+    <div class="hero-content">
+      <p class="hero-college reveal">Government Engineering College, Aurangabad</p>
+      <p class="hero-eyebrow reveal">Batch 2025–2029 · Welcomes You</p>
+
+      <h1 class="hero-title">
+        <span class="title-line reveal" data-delay="1">FRESHERS'</span>
+        <span class="title-line title-gradient reveal" data-delay="2">FIESTA</span>
+        <span class="title-line title-year reveal" data-delay="3">2026</span>
+      </h1>
+
+      <p class="hero-subtitle reveal" data-delay="4">Welcome Batch 2025–2029</p>
+      <p class="hero-tagline reveal" data-delay="5">"A New Journey Begins… Let's Celebrate Together!"</p>
+
+      <div class="hero-date reveal" data-delay="6">
+        <span class="date-icon">📅</span> 26 July 2026
+      </div>
+
+      <!-- Countdown -->
+      <div class="countdown reveal" data-delay="7" id="countdown">
+        <div class="countdown-unit">
+          <div class="flip-card"><span id="cd-days">00</span></div>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-unit">
+          <div class="flip-card"><span id="cd-hours">00</span></div>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-unit">
+          <div class="flip-card"><span id="cd-mins">00</span></div>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-unit">
+          <div class="flip-card"><span id="cd-secs">00</span></div>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <div class="hero-buttons reveal" data-delay="8">
+        <button type="button" class="btn btn-primary ripple" id="registerBtn">Register Now</button>
+        <a href="#schedule" class="btn btn-outline ripple">Event Schedule</a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll to explore</span>
+      <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+    </div>
+  </section>
+
+  <div class="divider"><span></span><i>✦</i><span></span></div>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about" id="about">
+    <div class="section-head reveal-up">
+      <p class="eyebrow">Who We Are</p>
+      <h2 class="section-title">About The Event</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card glass reveal-up">
+        <p>
+          Freshers' Fiesta 2026 is a grand celebration to welcome our juniors into the college family.
+          Experience fun games, music, dance, unforgettable performances, delicious food, and memories
+          that will last forever.
+        </p>
+        <div class="about-icons">
+          <div class="about-icon-item">
+            <span class="about-icon">🎉</span>
+            <span>Celebration</span>
+          </div>
+          <div class="about-icon-item">
+            <span class="about-icon">🤝</span>
+            <span>New Bonds</span>
+          </div>
+          <div class="about-icon-item">
+            <span class="about-icon">🎶</span>
+            <span>Live Music</span>
+          </div>
+          <div class="about-icon-item">
+            <span class="about-icon">💫</span>
+            <span>Memories</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-stats">
+        <div class="stat-card glass reveal-up">
+          <span class="stat-num" data-count="300">0</span>
+          <span class="stat-plus">+</span>
+          <p>Juniors Welcomed</p>
+        </div>
+        <div class="stat-card glass reveal-up">
+          <span class="stat-num" data-count="8">0</span>
+          <p>Live Events</p>
+        </div>
+        <div class="stat-card glass reveal-up">
+          <span class="stat-num" data-count="1">0</span>
+          <span class="stat-plus">Day</span>
+          <p>Of Non-Stop Fun</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span></span><i>✦</i><span></span></div>
+
+  <!-- ===================== EVENT HIGHLIGHTS ===================== -->
+  <section class="highlights" id="events">
+    <div class="section-head reveal-up">
+      <p class="eyebrow">What's In Store</p>
+      <h2 class="section-title">Event Highlights</h2>
+    </div>
+
+    <div class="highlight-grid">
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">🎤</span>
+        <h3>DJ Night</h3>
+        <p>Dance the night away with electrifying beats and pro lighting.</p>
+      </div>
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">🎶</span>
+        <h3>Musical Performances</h3>
+        <p>Live singing acts from the most talented voices on campus.</p>
+      </div>
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">💃</span>
+        <h3>Dance Performances</h3>
+        <p>Electrifying dance crews bringing energy to the stage.</p>
+      </div>
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">🎭</span>
+        <h3>Fun Games</h3>
+        <p>Ice-breakers and games to bring the new batch together.</p>
+      </div>
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">📸</span>
+        <h3>Photography Booth</h3>
+        <p>Capture the night with a themed photo booth and props.</p>
+      </div>
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">🏆</span>
+        <h3>Talent Show</h3>
+        <p>Show off your hidden talents and win exciting prizes.</p>
+      </div>
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">🎁</span>
+        <h3>Surprise Gifts</h3>
+        <p>Lucky draws and surprise gifts throughout the evening.</p>
+      </div>
+      <div class="highlight-card glass reveal-up">
+        <span class="highlight-emoji">🍕</span>
+        <h3>Food &amp; Refreshments</h3>
+        <p>A delicious spread to keep the celebration going strong.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span></span><i>✦</i><span></span></div>
+
+  <!-- ===================== SCHEDULE ===================== -->
+  <section class="schedule" id="schedule">
+    <div class="section-head reveal-up">
+      <p class="eyebrow">The Line-Up</p>
+      <h2 class="section-title">Event Schedule</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-time">4:00 PM</span>
+          <h3>Welcome Ceremony</h3>
+        </div>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-time">5:00 PM</span>
+          <h3>Performances</h3>
+        </div>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-time">10:00 PM</span>
+          <h3>DJ Party</h3>
+        </div>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-time">10:30 PM</span>
+          <h3>Prize Distribution</h3>
+        </div>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content glass">
+          <span class="timeline-time">11:00 PM</span>
+          <h3>Dinner</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span></span><i>✦</i><span></span></div>
+
+  <!-- ===================== TEAM ===================== -->
+  <section class="team" id="team">
+    <div class="section-head reveal-up">
+      <p class="eyebrow">Built By Students</p>
+      <h2 class="section-title">Developer Team</h2>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card glass reveal-up">
+        <div class="team-photo"><img loading="lazy" src="ashutosh kumar.jpeg" alt="Portrait of ASHUTOSH KUMAR"></div>
+        <h3>ASHUTOSH KUMAR</h3>
+        <p class="team-role">FULL STACK WEB DEVELOPER</p>
+        <div class="team-social">
+          <a href="https://www.instagram.com/ashutosh0264kumar?igsh=NGJrM3llajdrMzM1" aria-label="instagram">📸</a>
+          <a href="https://www.linkedin.com/in/ashutosh-kumar-560952330?utm_source=share_via&utm_content=profile&utm_medium=member_android" aria-label="LinkedIn">💼</a>
+          <a href="asutoshannu2005@gmail.com" aria-label="Email">✉️</a>
+        </div>
+      </div>
+      <div class="team-card glass reveal-up">
+        <div class="team-photo"><img loading="lazy" src="deeksha.jpeg" alt="Portrait of DEEKSHA SAGAR"></div>
+        <h3>DEEKSHA SAGAR</h3>
+        <p class="team-role">FULL STACK WEB DEVELOPER</p>
+        <div class="team-social">
+          <a href="https://www.instagram.com/d_sagar4512?igsh=enU0aDU5eGJqNno3" aria-label="instagram">📸</a>
+          <a href="https://www.linkedin.com/in/deeksha-sagar-5b1131288" aria-label="LinkedIn">💼</a>
+          <a href="deekshasagarhbr@gmail.com" aria-label="Email">✉️</a>
+        </div>
+      </div>
+      <div class="team-card glass reveal-up">
+        <div class="team-photo"><img loading="lazy" src="anshu.jpeg" alt="Portrait of ANSHU KUMAR"></div>
+        <h3>ANSHU KUMAR</h3>
+        <p class="team-role">FULL STACK WEB DEVELOPER</p>
+        <div class="team-social">
+          <a href="https://www.instagram.com/anshurajput_2707?igsh=ZzZ2cTVidjgzeTFs" aria-label="instagram">📸</a>
+          <a href="https://www.linkedin.com/in/anshu-kumar-90b339354?utm_source=share_via&utm_content=profile&utm_medium=member_android" aria-label="LinkedIn">💼</a>
+          <a href="anshuankit2083@gmail.com" aria-label="Email">✉️</a>
+        </div>
+      </div>
+      <div class="team-card glass reveal-up">
+        <div class="team-photo"><img loading="lazy" src="utsav.jpeg" alt="Portrait of UTSAV KUMAR"></div>
+        <h3>UTSAV KUMAR</h3>
+        <p class="team-role">FULL STACK WEB DEVELOPER</p>
+        <div class="team-social">
+          <a href="https://www.instagram.com/utsavthakur4?igsh=dm9xd2tlODY5ZHJz" aria-label="instagram">📸</a>
+          <a href="https://www.linkedin.com/in/utsav-kumar-0abb93346?utm_source=share_via&utm_content=profile&utm_medium=member_android" aria-label="LinkedIn">💼</a>
+          <a href="nitukumari1881983@gmail.com" aria-label="Email">✉️</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span></span><i>✦</i><span></span></div>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="faq" id="faq">
+    <div class="section-head reveal-up">
+      <p class="eyebrow">Good To Know</p>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item glass reveal-up">
+        <button class="faq-question">
+          What should I wear?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Come dressed to impress! Smart casual or festive party wear is perfect — think bold colors and comfortable shoes for dancing.</p>
+        </div>
+      </div>
+      <div class="faq-item glass reveal-up">
+        <button class="faq-question">
+          Is registration free?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! Registration is completely free for all students of Batch 2025–2029. Just fill in the registration form to confirm your spot.</p>
+        </div>
+      </div>
+      <div class="faq-item glass reveal-up">
+        <button class="faq-question">
+          Is photography allowed?
+          <span class="faq-toggle">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely! We'll have a dedicated photo booth, and you're welcome to capture your own memories throughout the event.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span></span><i>✦</i><span></span></div>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="section-head reveal-up">
+      <p class="eyebrow">Get In Touch</p>
+      <h2 class="section-title">Contact Us</h2>
+    </div>
+
+    <div class="contact-wrap contact-wrap-single">
+      <div class="contact-card glass reveal-up">
+        <div class="contact-row">
+          <span class="contact-icon">📍</span>
+          <div>
+            <h4>Venue</h4>
+            <p>Government Engineering College, Aurangabad — Auditorium</p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📞</span>
+          <div>
+            <h4>Phone</h4>
+            <p>+91 7992466037 </p>
+          </div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">✉️</span>
+          <div>
+            <h4>Email</h4>
+            <p>ashutoshannu2005@gmail.com</p>
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="https://www.instagram.com/ashutosh0264kumar?igsh=NGJrM3llajdrMzM1" aria-label="Instagram" class="social-btn">📸</a>
+          
+          <a href="https://youtube.com/@ashutoshkumar0264?si=y6a2DE7DYUv2LMFK" aria-label="YouTube" class="social-btn">▶️</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="footer-logo">✦ FIESTA'26 ✦</p>
+    <p class="footer-college">Government Engineering College, Aurangabad</p>
+    <p class="footer-made">Made with <span class="heart">❤️</span> for Batch 2025–2029</p>
+    <p class="footer-copy">Copyright © 2026 Freshers' Fiesta. All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<!-- ===================== REGISTRATION MODAL ===================== -->
+<!-- Replace each href="#" below with the actual Google Form link for that event -->
+<div class="register-modal" id="registerModal">
+  <div class="register-card glass">
+    <button class="register-close" id="registerClose" aria-label="Close registration">✕</button>
+    <p class="eyebrow">Batch 2025–2029</p>
+    <h2 class="register-title">Register For Freshers' Fiesta</h2>
+    <p class="register-note">Pick an event below to fill its registration form. You can register for as many as you like.</p>
+
+    <div class="register-list">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScE7erEr06zdJevNl37xWZooKhae2TuiwZfor42gi5hFe9n4g/viewform?usp=sharing&ouid=113323115620331841582" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">🎤</span>
+        <span class="register-info"><span>SOLO SONG</span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">🎶</span>
+        <span class="register-info"><span>GROUP SONG</span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">💃</span>
+        <span class="register-info"><span> SOLO DANCE </span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>+
+
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">🎭</span>
+        <span class="register-info"><span>GROUP DANCE</span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">📸</span>
+        <span class="register-info"><span>DRAMA</span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">🏆</span>
+        <span class="register-info"><span>OPEN MIC</span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">🎁</span>
+        <span class="register-info"><span>COUPLE DANCE</span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>
+      </a>
+      <a href="#" target="_blank" rel="noopener" class="register-link">
+        <span class="register-emoji">🍕</span>
+        <span class="register-info"><span>Food &amp; Refreshments</span><small>Google Form</small></span>
+        <span class="register-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
