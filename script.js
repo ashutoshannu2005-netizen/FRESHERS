@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------------------------------------------------
      5. COUNTDOWN TIMER (26 July 2026)
   --------------------------------------------------- */
-  const targetDate = new Date('2026-07-26T16:00:00');
+  const targetDate = new Date('2026-07-29T14:00:00');
   const cdDays = document.getElementById('cd-days');
   const cdHours = document.getElementById('cd-hours');
   const cdMins = document.getElementById('cd-mins');
